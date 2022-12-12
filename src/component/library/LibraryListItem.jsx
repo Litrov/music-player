@@ -1,5 +1,5 @@
 import chillHop from "../../data/data";
-import LibrarySongTitle from "../../elements/library/LibrarySongTitle";
+import LibrarySongName from "../../elements/library/LibrarySongName";
 import LibrarySongArtist from "../../elements/library/LibrarySongArtist";
 import LibrarySongCover from "../../elements/library/LibrarySongCover";
 
@@ -34,9 +34,11 @@ const LibraryListItem = ({ song, setSongState, songState, audioRef }) => {
         >
             <LibrarySongCover song={song} />
             <div className="library__song-column">
-                <LibrarySongTitle song={song} />
+                <LibrarySongName song={song} />
                 <LibrarySongArtist song={song} />
             </div>
         </div>
     );
 }
+
+export default LibraryListItem;

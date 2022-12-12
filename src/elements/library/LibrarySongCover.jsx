@@ -2,7 +2,7 @@ const LibrarySongCover = ({ song }) => {
     return (
         <figure className="library__song--cover">
             <img
-                src={`${song.thumbUrl}`}
+                src={`${song.cover}`}
                 alt="Artwork"
                 className="library-song-cover-art"
                 // style={{

@@ -59,12 +59,19 @@ const MainContainer = ({uiState, setUiState, songState, setSongState, audioRef,}
         }
     };
 
+    const libraryToggleHandler = (e) => {
+        if (window.visualViewport.width < 900) {
+            setUiState({ ...uiState, libraryShown: true });
+            console.log("changed");
+        }
+    };
+
     return <div className="player__control">
         <RiPlayListLine
             uiState={uiState}
             setUiState={setUiState}
             className="player__control-icon disabled-on-desktop"
-            //onClick={libraryToggleHandler}
+            onClick={libraryToggleHandler}
         />
         <RiSkipBackLine
             className="player__control-icon"

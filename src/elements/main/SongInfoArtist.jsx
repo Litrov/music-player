@@ -1,5 +1,3 @@
-import colors from "../../utils/Colors";
-
 const SongInfoArtist = ({ songState }) => {
     return (
         <h1 className="song-info__artist">

@@ -1,9 +1,10 @@
-import './App.css';
+import "./styles/app.scss"
 import MainContainer from "./component/main/Main-container";
 import chillHop from "./data/data";
 import {useRef, useState} from "react";
 import SongInfo from "./component/main/SongInfo";
 import Player from "./component/PlayerUI/Player";
+import Library from "./layouts/Library";
 
 function App() {
     const [uiState, setUiState] = useState({
@@ -49,7 +50,22 @@ function App() {
     return (
         <div>
             <SongInfo songState={songState} />
-            <MainContainer/>
+            <MainContainer
+                uiState={uiState}
+                setUiState={setUiState}
+                songState={songState}
+                setSongState={setSongState}
+                chillHop={chillHop}
+                audioRef={audioRef}
+            />
+            <Library
+                uiState={uiState}
+                setUiState={setUiState}
+                songState={songState}
+                setSongState={setSongState}
+                chillHop={chillHop}
+                audioRef={audioRef}
+            />
             <Player
                 uiState={uiState}
                 setUiState={setUiState}
@@ -57,6 +73,14 @@ function App() {
                 songState={songState}
                 setSongState={setSongState}
             />
+            <audio
+                ref={audioRef}
+                src={songState.currentSong[0].audio}
+                onTimeUpdate={songInfoHandler}
+                onLoadedMetadata={songInfoHandler}
+                onEnded={songEndHandler}
+            ></audio>
+
         </div>
     );
 }
